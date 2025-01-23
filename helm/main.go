@@ -98,8 +98,7 @@ func (h *Helm) PackagePush(
 	username string,
 	password *dagger.Secret,
 	// +default=true
-	oci bool,
-) (bool, error) {
+	oci bool) (bool, error) {
 	opts := PushOpts{
 		Registry:   registry,
 		Repository: repository,
