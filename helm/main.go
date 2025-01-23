@@ -97,12 +97,13 @@ func (h *Helm) PackagePush(
 	repository string,
 	username string,
 	password *dagger.Secret,
-	// +default=true
-	oci bool) (bool, error) {
+	// +default=false
+	useNonOciHelmRepo bool,    // sadly this has to be a default of false due to https://github.com/dagger/dagger/issues/8810
+) (bool, error) {
 	opts := PushOpts{
 		Registry:   registry,
 		Repository: repository,
-		Oci:        oci,
+		Oci:        !useNonOciHelmRepo,
 		Username:   username,
 		Password:   password,
 	}
