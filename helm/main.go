@@ -91,20 +91,12 @@ func (h *Helm) Version(
 //		--directory ./examples/testdata/mychart/ \
 //		--oci false
 func (h *Helm) PackagePush(
-	// method call context
 	ctx context.Context,
-	// directory that contains the Helm Chart
 	directory *dagger.Directory,
-	// URL of the registry
 	registry string,
-	// name of the repository
 	repository string,
-	// registry login username
 	username string,
-	// registry login password
 	password *dagger.Secret,
-	// +optional
-	// +default=true
 	oci bool,
 ) (bool, error) {
 	opts := PushOpts{
